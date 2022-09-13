@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasia</title>
+    <link rel="stylesheet" href="./assets/style/style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo.jpeg">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <img id="mainLogo" src="./assets/images/logo.jpeg" alt="logo" width="100">
+                <li><a id="menuLink" href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+        <div id="loginInfoWrapper">
+            <span id="loginInfo"></span>
+            <a id="logOut" href="#"></a>
+        </div>
+        <span id="basketCount"></span>
+        <a href="#basket"><img id="basketLogo" src="./assets/images/cart.jpeg" alt="basket-logo"></a>
+    </header>
+    <main>
+        <div id="loginPage">
+            <form id="loginForm" class="loginRegistrationForms">
+                <input type="email" name="email" placeholder="Email..." required id="loginUserEmail">
+                <input type="password" name="password" placeholder="password..." required id="loginUserPass">
+                <p id="loginError" class="error">Wrong credentials</p>
+                <button type="submit" id="loginBtn">Sign in</button>
+                <span>Don't have account? <a href="#registrationPage">Create account</a></span>
+            </form>
+
+        </div>
+        <div id="registrationPage">
+            <p id="regSuccess"></p>
+            <form id="registrationForm" class="loginRegistrationForms">
+                <input name="email" type="email" placeholder="Email..." required id="registerUserEmail">
+                <p id="invalidMail" class="error"></p>
+                <input name="username" type="text" placeholder="Username..." required id="registerUserName">
+                <p id="usernameLength" class="error"></p>
+                <input name="password" type="password" placeholder="password..." required id="registerUserPass">
+                <p id="passLength" class="error"></p>
+                <input type="password" placeholder="confirm password..." required id="registerUserPassConfirm">
+                <p id="emailError" class="error">Email is already taken!</p>
+                <p id="usernameError" class="error">Username is already taken!</p>
+                <p id="passError" class="error">Your passwords don't match!</p>
+                <button type="submit" id="createAcc" disabled>Create account</button>
+                <span>Already have account? <a href="#loginPage">Sign in</a></span>
+            </form>
+        </div>
+        <div id="menu">
+            <input id="searchByText" type="text" placeholder="Търси...">
+            <div id="results"></div>
+        </div>
+        <div id="basket"></div>
+        <div id="sumAndButton">
+            <span id="total"></span>
+            <a href="#delivery"><input id="orderBtn" type="button" value="Доставка"></a>
+            <p id="previousOrders">Предишни поръчки:</p>
+            <div id="tableWrapper">
+                <table id="tableHistory">
+                    <th id="orderDate">Дата</th>
+                    <th id="orderAdress">Адрес</th>
+                    <th id="orderProducts">Списък продукти</th>
+                    <th id="totalAmount">Обща стойност</th>
+                </table>
+                <p id="errorNoHistory" class="error"></p>
+            </div>
+        </div>
+        <div id="delivery">
+            <div id="formWrapper">
+                <p id="systemMessage"></p>
+                <form id="deliveryForm" action="">
+                    <input id="profileName" type="text" required placeholder="Въведете имена до 20 символа!">
+                    <input id="phone" type="number" required placeholder="Телефонен номер (примерен формат: 088616272)">
+                    <textarea id="adress" required placeholder="Адрес до 70 символа"></textarea>
+                    <input id="finalization" type="submit" value="Финализирай" disabled>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/constants.js"></script>
+    <script src="./assets/js/model/productManager.js"></script>
+    <script src="./assets/js/model/router.js"></script>
+    <script src="./assets/js/model/user.js"></script>
+    <script src="./assets/js/model/userManager.js"></script>
+    <script src="./assets/js/controllers/deliveryController.js"></script>
+    <script src="./assets/js/controllers/loginController.js"></script>
+    <script src="./assets/js/controllers/productController.js"></script>
+    <script src="./assets/js/controllers/registrationController.js"></script>
+    <script src="./assets/js/controllers/routerController.js"></script>
+
+</body>
+
+</html>
